@@ -38,7 +38,6 @@ class LinkedList:
             if temp_node.next is not None:
                 result = result + '->'
             temp_node = temp_node.next
-
         return result
 
     def traverse_ll(self):
@@ -72,8 +71,9 @@ new_ll.append(10)
 new_ll.append(20)
 result1 = new_ll.printlist()
 print(result1)
-result = new_ll.pop_end()
-print("popped_NODE is",result.value)
+# result = new_ll.pop_end()
+# print("popped_NODE is",result.value)
 result12 = new_ll.printlist()
 print(result12)
+
 
