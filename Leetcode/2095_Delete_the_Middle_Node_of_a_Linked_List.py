@@ -18,19 +18,49 @@ class Solution:
     def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         fast = head
         slow = head
+        dummy = ListNode(-1)
+        curr = dummy
+        curr.next = head
+        if slow.next is None:
+            return None
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+            curr = curr.next
+        curr.next = slow.next
+        slow.next = None
+        return head
+'''
+Optimal Solution :
 
-        slow_node = head
-        fast_node = head
-        while fast_node is not None and fast_node.next is not None:
-            fast_node = fast_node.next.next
-            slow_node = slow_node.next
+class Solution:
+    def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head or not head.next:
+            return None
+        
+        fast = head
+        slow = head
+        prev = None
+        
+        1->2->3
+        P
+        F
+        S
+        Next while iteration :
+        1->2->3
+              F
+        P  S     
+        
+        Then just remove the node :) 
+             
+        while fast and fast.next:
+            fast = fast.next.next
+            prev = slow              
+            slow = slow.next
+        
+        # Remove the middle node
+        prev.next = slow.next
+        
+        return head
 
-        temp = slow_node
-        if fast_node is None:
-            temp.next = None
-            fast_node = None
-        else:
-            temp.next = fast_node.next
-            fast_node.next = None
-
-        return temp
+'''
