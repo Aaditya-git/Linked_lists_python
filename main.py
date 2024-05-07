@@ -65,15 +65,24 @@ class LinkedList:
         self.length -= 1
         return popped_node
 
+    def odd_even(self):
+        odd = self.head
+        even = self.head.next
+        while not odd or not even:
+            odd.next = even.next
+            odd = even.next
+            even.next = odd.next
+            even = odd.next
+
 new_ll = LinkedList()
-new_ll.prepend(30)
 new_ll.append(10)
 new_ll.append(20)
-result1 = new_ll.printlist()
-print(result1)
-# result = new_ll.pop_end()
+new_ll.append(30)
+new_ll.append(40)
+new_ll.append(50)
+result = new_ll.odd_even()
 # print("popped_NODE is",result.value)
-result12 = new_ll.printlist()
-print(result12)
+# result2 = new_ll.printlist()
+# print(result2)
 
 
