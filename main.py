@@ -1,3 +1,7 @@
+'''
+Basic Linked List operations.
+'''
+
 class Node:
     def __init__(self, value):
         self.value = value
